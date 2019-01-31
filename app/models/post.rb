@@ -6,11 +6,5 @@ class Post < ActiveRecord::Base
   accepts_nested_attributes_for :categories
 
 
-  def comments_attributes(comment_attributes)
-    binding.pry
-    comment_attributes.values.each do |comment_attribute|
-      comment = Comment.find_or_create_by(comment_attribute)
-      self.comments.build(comment: comment)
-    end
-  end
+
 end
